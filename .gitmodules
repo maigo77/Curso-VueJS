@@ -1,0 +1,3 @@
+[submodule "stockTrader"]
+	path = stockTrader
+	url = https://github.com/maigo77/stockTrader.git
