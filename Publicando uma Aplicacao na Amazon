@@ -1,0 +1,36 @@
+Fazendo o deploy do FrontEnd na Amazon
+
+- Faça o build da aplicação
+- No site da Amazon AWS, entre em S3
+- Criar um "Bucket" com uma URL valida
+Ex: seu dominio é aulasdeprogramacao.com.br, o bucket name pode ser vuejs.aulasdeprogramacao.com.br, wwww.aulasdeprogramacao.com.br e qualquer outro link valido
+- Na tela de permissões, desmarque as opções que estiverem checadas afim de permitir que você permita arquivos públicos (opcional)
+- Crie o bucket (basicamente um repositório de arquivos)
+- Selecione os arquivos e arraste para o Bucket
+- Vá em "próximo" e, nas configurações de permissões públicas, habilite a leitura pública - Grant public read access to this object(s) - (opcional) 
+- Aguarde o upload
+- Vá em properties, é necessário habilitar o Static Website Hosting. 
+- Clique, selecione a primeira opção (Use this bucket to host a website)
+- Indique a index.html para index document e error
+- Salvando a url já estará disponível
+- Adicione o link ao seu dominio no registro.br
+
+Criar certificado SSL
+
+- Acessar certificate manager para prover um certificado
+- Requisitar um certificado para o domínio que você está utilizando (o que foi registrado no registro.br e vinculado ao link da Amazon)
+- No momento que confirmar será exibido informações dos próximos passos, copie o link
+- No registro.br adicione o link + o valor
+- Logo a validação será verificada
+
+Criar distribuição no CloudFront
+
+- Acessar CloudFront na AWS
+- Clicar em criar distribuição e selecionar para web
+- Selecionar o dominio do seu site
+- Redirecionar requisições HTTP para HTTPS
+- Nos nomes alternativos indique o seu link
+- Selecione um Custom SSL e acione o que foi criado anteriormente
+- Arquivo chamado por pdrao deve ser index.html (default root object)
+
+O endereço que estamos acessando deve bater com o nome do Bucket que foi definido na Amazon
